@@ -49,7 +49,8 @@ document.addEventListener('mouseenter',()=>{
     win.style.backgroundColor='transparent';
     win.style.color='black';
     win.style.textAlign='center';
-})
+});
+
 for(let i=0; i<card.length; i++){
     card[i].style.border="1px solid black";
     card[i].style.borderRadius="10px"
