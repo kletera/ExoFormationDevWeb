@@ -31,9 +31,9 @@ console.log(img);
 const imgArr=Array.from(img);
 console.log(imgArr);
 
-imgArr.map((image,index)=>image.addEventListener('load',()=>{
+imgArr.map((image,index)=>{image.addEventListener('load',()=>{
     console.log(`Image numéro: ${index} - vien de finir de charger`)
-}));
+})});
 
 console.log("-----------");
 const win=document.querySelector("#mouseOut");
