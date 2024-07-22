@@ -23,11 +23,7 @@ console.log("-----------");
 const card=document.querySelectorAll('.card');
 const h=document.querySelectorAll('h5');
 console.log(card,h);
-for(let i=0; i<card.length; i++){
-    card[i].style.border="1px solid black";
-    card[i].style.margin="10px";
-    h[i].style.textAlign='center';
-}
+
 
 const img=document.querySelectorAll('img');
 console.log(img);
@@ -54,3 +50,10 @@ document.addEventListener('mouseenter',()=>{
     win.style.color='black';
     win.style.textAlign='center';
 })
+for(let i=0; i<card.length; i++){
+    card[i].style.border="1px solid black";
+    card[i].style.borderRadius="10px"
+    card[i].style.margin="10px";
+    h[i].style.textAlign='center';
+    img[i].style.borderRadius="10px 10px 0 0 "
+}
