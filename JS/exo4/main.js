@@ -58,3 +58,28 @@ for(let i=0; i<card.length; i++){
     h[i].style.textAlign='center';
     img[i].style.borderRadius="10px 10px 0 0 "
 }
+console.log("-------------");
+
+console.log(`
+    Hauteur page : ${document.body.scrollHeight}
+    Hauteur affichage : ${innerHeight}
+    Scroll Position : ${scrollY}`
+);
+
+document.addEventListener("scroll",()=>{
+    let scrollMax=document.body.scrollHeight-innerHeight;
+    let onEstOu = (scrollY /scrollMax)*100 ;
+    let bar=document.querySelector('.bar');
+    bar.style.width=onEstOu+'%';
+});
+
+console.log("-------------");
+
+const txtarea=document.querySelector('textarea');
+const p=document.querySelector('p');
+console.log(txtarea,p)
+
+txtarea.addEventListener('keypress', (event)=>{
+    console.log(event);
+        p.innerText= txtarea.value;
+})
