@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <style>
+    .laClasse {
+      color: chartreuse;
+      font-style: oblique;
+      background-color: blueviolet;
+    }
+
+    #mouseOut {
+      display: none;
+    }
+
+    .boxBar {
+      z-index: 1;
+      width: 100%;
+      border: 5px solid blueviolet;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .bar {
+      height: 21px;
+      background: turquoise;
+      width: 0%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="boxBar">
+    <div class="bar"></div>
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary mt-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../index.html">Jefff.js</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+          </li>
+          <!-- Menu Drop pour les Leçons -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Leçons
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../lessons/index.html">Les Leçons</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="../lessons/lesson-1-variables.html">1-Variables</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-2-calculs.html">2-Calculs</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-3-strings.html">3-Strings</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-4-arrays.html">4-Arrays</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-5-functions.html">5-Functions</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-6-operators.html">6-Operators</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-7-conditions.html">7-Conditions</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-8-objects.html">8-Objects</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-9-loops.html">9-Loops</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-10-spread.html">10-Spread</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-11-scope.html">11-Scope</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-12-error.html">12-Error</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-13-classes.html">13-Classes</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-14-api.html">14-API</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-15-modular.html">15-Modular</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-16-workers.html">16-Workers</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-101-dom-selectors.html">101-DOM-Selectors</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-102-dom-creation.html">102-DOM-Creation</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-103-dom-attributes.html">103-DOM-Attributes</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-104-dom-events.html">104-DOM-Events</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-105-dom-storage.html">105-DOM-Storage</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-106-dom-regexp.html">106-DOM-Regexp</a></li>
+              <li><a class="dropdown-item" href="../lessons/lesson-107-dom-firebase.html">107-DOM-Firebase</a></li>
+            </ul>
+          </li>
+          <!-- Menu Drop Pour les Exercices -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Exercices
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../exo/index.html">Les Exercices</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="../exo/exo-1-variables.html">1-Variables</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-2-calculs.html">2-Calculs</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-3-strings.html">3-Strings</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-4-arrays.html">4-Arrays</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-5-functions.html">5-Functions</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-6-operators.html">6-Operators</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-7-conditions.html">7-Conditions</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-8-objects.html">8-Objects</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-9-loops.html">9-Loops</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-10-spread.html">10-Spread</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-11-scope.html">11-Scope</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-12-error.html">12-Error</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-13-classes.html">13-Classes</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-14-api.html">14-API</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-15-modular.html">15-Modular</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-16-workers.html">16-Workers</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-101-dom-selectors.html">101-DOM-Selectors</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-102-dom-creation.html">102-DOM-Creation</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-103-dom-attributes.html">103-DOM-Attributes</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-104-dom-events.html">104-DOM-Events</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-105-dom-storage.html">105-DOM-Storage</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-106-dom-regexp.html">106-DOM-Regexp</a></li>
+              <li><a class="dropdown-item" href="../exo/exo-107-dom-firebase.html">107-DOM-Firebase</a></li>
+            </ul>
+          </li>
+          <!-- Menu Drop pour les TP et Évaluations -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              TP-Éval
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../tp/index.html">Les Exercices</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="../tp/tp-1.html">tp-1</a></li>
+              <li><a class="dropdown-item" href="../tp/tp-1.html">tp-1</a></li>
+              <li><a class="dropdown-item" href="../tp/tp-2.html">tp-2</a></li>
+              <li><a class="dropdown-item" href="../tp/tp-3.html">tp-3</a></li>
+              <li><a class="dropdown-item" href="../tp/tp-4.html">tp-4</a></li>
+              <li><a class="dropdown-item" href="../tp/tp-5.html">tp-5</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Main Content -->
+  <div id="app" class="container-fluid min-vh-100">
+    <div class="row">
+      <div class="col">
+        <h1 id="mainTitle">D.O.M Events</h1>
+        <h3 id="mouseOut">Message Arnaque</h3>
+        <a href="#" class="superLien">Ajouter Classe</a>
+        <a href="#" class="superLien mx-3">Supprimer Classe</a>
+        <a href="#" class="superLien">Toggle Classe</a>
+        <!-- Section de héros main call to action -->
+        <form id="myForm" class="m-3 p-3 col-6">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email / LOGIN address</label>
+            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <input type="text" class="form-control" id="titleInput" placeholder="your title">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <input type="text" class="form-control" id="passwordInput" placeholder="your title">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="formMessage" rows="3"></textarea>
+          </div>
+          <div class="col-auto">
+            <button id="formSubmitBtn" type="submit" class="btn btn-info">Submit</button>
+          </div>
+          <div id="userMessage" class="mb-3"></div>
+        </form>
+      </div>
+      <div class="m-3 p-3 col-6">
+        <h2>Text Editor</h2>
+        <div class="formRender" id="formRender"></div>
+      </div>
+    </div>
+
+    <div id="renderTextEdit"></div>
+    <!-- Plusieurs Grandes Images -->
+    <div>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col-6">
+          <div class="card h-100">
+            <img src="https://picsum.photos/1920/1080">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://picsum.photos/1920/1080">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://picsum.photos/1920/1080">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://picsum.photos/1920/1080">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Footer -->
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">© 2024 Cours Javascript</span>
+    </div>
+  </footer>
+  <!-- Scripts Externes -->
+  <script src="https://rawgit.com/WeiChiaChang/Easter-egg/master/easter-eggs-collection.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.min.js"
+    integrity="sha512-t1jq1b5U4hgz4lQoeyRD9QiVu99KxjyA939fnND+R+gLOHmuT5F9YFHJI1Nse1B1QG6/U11SPAc8fshYshb6MA=="
+    crossorigin="anonymous"></script>
+  <!-- Mes Scripts -->
+  <script type="module" src="../main.js"></script>
+  <script type="module" src="exo-104-dom-events.js"></script>
+</body>
+
+</html>

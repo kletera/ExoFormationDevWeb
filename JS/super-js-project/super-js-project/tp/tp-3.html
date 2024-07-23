@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson-101-DOM-Selectors</title>
+</head>
+<body>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Jefff.js</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <!-- Menu Drop pour les Leçons -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Leçons
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../lessons/index.html">Les Leçons</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-1-variables.html">1-Variables</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-2-calculs.html">2-Calculs</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-3-strings.html">3-Strings</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-4-arrays.html">4-Arrays</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-5-functions.html">5-Functions</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-6-operators.html">6-Operators</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-7-conditions.html">7-Conditions</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-8-objects.html">8-Objects</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-9-loops.html">9-Loops</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-10-spread.html">10-Spread</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-11-scope.html">11-Scope</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-12-error.html">12-Error</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-13-classes.html">13-Classes</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-14-api.html">14-API</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-15-modular.html">15-Modular</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-16-workers.html">16-Workers</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-101-dom-selectors.html">101-DOM-Selectors</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-102-dom-creation.html">102-DOM-Creation</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-103-dom-attributes.html">103-DOM-Attributes</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-104-dom-events.html">104-DOM-Events</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-105-dom-storage.html">105-DOM-Storage</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-106-dom-regexp.html">106-DOM-Regexp</a></li>
+                    <li><a class="dropdown-item" href="../lessons/lesson-107-dom-firebase.html">107-DOM-Firebase</a></li>
+                  </ul>
+                </li>
+                <!-- Menu Drop Pour les Exercices -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Exercices
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../exo/index.html">Les Exercices</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../exo/exo-1-variables.html">1-Variables</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-2-calculs.html">2-Calculs</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-3-strings.html">3-Strings</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-4-arrays.html">4-Arrays</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-5-functions.html">5-Functions</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-6-operators.html">6-Operators</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-7-conditions.html">7-Conditions</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-8-objects.html">8-Objects</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-9-loops.html">9-Loops</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-10-spread.html">10-Spread</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-11-scope.html">11-Scope</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-12-error.html">12-Error</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-13-classes.html">13-Classes</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-14-api.html">14-API</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-15-modular.html">15-Modular</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-16-workers.html">16-Workers</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-101-dom-selectors.html">101-DOM-Selectors</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-102-dom-creation.html">102-DOM-Creation</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-103-dom-attributes.html">103-DOM-Attributes</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-104-dom-events.html">104-DOM-Events</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-105-dom-storage.html">105-DOM-Storage</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-106-dom-regexp.html">106-DOM-Regexp</a></li>
+                    <li><a class="dropdown-item" href="../exo/exo-107-dom-firebase.html">107-DOM-Firebase</a></li>
+                  </ul>
+                </li>
+                <!-- Menu Drop pour les TP et Évaluations -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    TP-Éval
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../tp/index.html">Les Exercices</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../tp/tp-1.html">tp-1</a></li>
+                    <li><a class="dropdown-item" href="../tp/tp-2.html">tp-2</a></li>
+                    <li><a class="dropdown-item" href="../tp/tp-3.html">tp-3</a></li>
+                    <li><a class="dropdown-item" href="../tp/tp-4.html">tp-4</a></li>
+                    <li><a class="dropdown-item" href="../tp/tp-5.html">tp-5</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Main Content -->
+        <div id="app" class="container-fluid min-vh-100">
+          <h1>Ici TP-3</h1>
+              <!-- Section de héros main call to action -->
+        
+        </div>
+        <!-- Footer -->
+        <footer class="footer mt-auto py-3 bg-light">
+          <div class="container text-center">
+            <span class="text-muted">© 2024 Cours Javascript</span>
+          </div>
+        </footer>
+        <!-- Scripts -->
+        <script type="module" src="../main.js"></script>
+        <script type="module" src="tp-3.js"></script>
+      </body>
+</body>
+</html>
