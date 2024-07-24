@@ -1,73 +1,62 @@
-// EXO 5.2
-function moyenne(note1,note2){
-    console.log((note1+note2)/2)
-}
-moyenne(10,13);
+// JS map phase 1
+const lesTxt=document.getElementsByTagName('p');
+console.log(lesTxt);
+// JS map phase 2
+const textesTab=Array.from(lesTxt);
+console.log(textesTab);
+// JS map phase 3
+const map=textesTab.map((param)=> param.innerText="LOL JE SUIS HACKERMAN");
 
-// EXO 5.3
-function moyenneBac(tab){
-    let result=0;
-    for(let i=0; i<tab.length; i++){
-        result+=tab[i];
-    }
-    return result/tab.length;
-}
-console.log("La moyenne du bac de Tibo est de :",moyenneBac([10,9,8,16,14,13,11]));
+// Bonus : peut on faire en sorte que chaque <p> soit clickable (quand on click sur 1 <p> ca affiche un msg en console)
+textesTab.map(toto => toto.addEventListener('click',function(){
+    console.log("SUPER CA CLICK");
+}));
 
-console.log("------------");
-//TODO : Pourquoi ca beug ?
-function buggyFunction() {
-    let wtf = 9;
-    console.log(wtf);
-}; 
-buggyFunction();
-console.log(wtf);
+//!Quizz : ca bug
+//* var voiture = "Renault";
+//* console.log(voiture);
+//* var voiture = "BMW";
+//* console.log(voiture);
 
-/* Ici ce qui beug c'est le console.log(wtf); après la fonction.
-    la variable wtf est unique à la fonction elle n'est pas enregistrer hor de la fonction.
-    Donc ici ta fonction marche mais pas le console.log hors de la fonction car ta variable n'est pas définie hors de la fonction.
+/* Sa marche c'est trèb bein. CEPENDANT On ne peut pas déclarer une variable comme tu la fait. Chaque variables crée doivent avoir un nom différents sinon elle rentre en conflit.
+De plus on évite de déclarer avec var sa vas te cosé des problème à ton code plus tard utilise plus tôt let et const. Ensuite si tu veux rassembler "Renault" et "BMW" dans la meme variable alors tu doit faire un tableau.
+Ton code ressemblerai à ca si tout est bon:
 */
-// Sollution:
-function buggyFunction() {
-    let wtf = 9;
-    console.log(wtf);
-}; 
-buggyFunction();
-console.log("------------");
-//TODO : Pourquoi ca beug / Pourquoi ca marche pas ?
-// function functionBugParent() {
-//     let something = 9;
-//     console.log(something);
-//     console.log(lesNews);
+const voiture = ["Renault", "BMW"];
+console.log(voiture);
 
+//! Exo 3
+//  let car = "Nissan";
+//  if(car=="Nissan"){
+//      let vitesse = 800;
+//  }
+//  console.log(vitesse);
 
-//     function functionBugEnfant() {
-//         let lesNews = `il est 99h67`;
-//     }
-// };
-// functionBugParent();
-// console.log(something);
-
-/*
- Ici il y a plusieur probleme. Tout d'abord tu à oublier d'appeler la fonction functionBugEnfant().
- Ensuite ton console.log(lesNews); na rien a faire dans cette fonction il doit etre placer dans functionBugEnfant().
- Parce que ta variable lesNews n'est pas défini dans ta fonction functionBugParent() mais dans la fonction functionBugEnfant().
- Chaque variable dans une fonction est unique à sa fonction et ne peut être utiliser hors de sa fonction.
- C'est pour ca que quand tu a fait console.log(something) tu obtien 2 résultat différant l'un est de la variable hors de la fonction et l'autre est de celui dans ta fonction.
-je sais pas si tu voulai faire une incrémentation(ajouter) a somthing mais si c'est cà voilla sa que sa donnerai.
+/*On utilise jamais var. De plus ton if ici est inutile car pécédament tu à mis en sorte que dan la varibale car il y a Nissan. Ensuite normallement ton console log if serai imposible à lire par l'ordinateur car il est hors de la fonction if.
+Tu peux mettre ton code commme ceci c'est plus simple.
 */
-// Solution:
-let something = 44;
-function functionBugParent() {
-    something+= 9;
-    console.log(something);
-   
+const car = "Nissan";
+let vitesse = 800;
+console.log(vitesse);
 
+//! Exo 4
+// let superCar = 'BMW';
+// const superModel = 'Sport';
 
-    function functionBugEnfant() {
-        let lesNews = `il est 99h67`;
-        console.log(lesNews);
-    }
-    functionBugEnfant()
+// if(superCar =='BMW'){
+//     const superVitesse = 900;
+//     let superCar = "Citroen";
+//     console.log(superCar);
+// }
+// console.log(superCar);
+
+/*C'est mieux tu utilise plus var. Mais tu utilise encore les meme nom de variable attention on ne crée pas les meme nom de variable. je sais pas trop ce que tu voulais faire mais si tu voulais changer ta variable superCar en Citroen il fallai faire comme ca.
+PS: re-lis tes cours de let et const je sais pas si c'est ce que tu voulai.
+*/
+let superCar = 'BMW';
+const superModel = 'Sport';
+if(superCar =='BMW'){
+    const superVitesse = 900;
+    superCar = "Citroen";
+    console.log(superCar);
 }
-functionBugParent();

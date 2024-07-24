@@ -1,0 +1,16 @@
+h1{
+    color: red;
+}
+a{
+    color:yellow;
+}
+#contenu{
+    background-color: lightgray;
+    text-align: left;
+}
+div{
+    text-align: right;
+}
+div img[alt="Image de paysage 2"] + p{
+    font-size:2em;
+}

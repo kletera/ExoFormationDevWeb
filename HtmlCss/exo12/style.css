@@ -1,0 +1,20 @@
+.animation {
+    width: 500px;
+    height: 700px;
+    background-color: palegreen;
+}
+.transition {
+    width: 200px;
+    height: 150px;
+    background-color: blue;
+    transition-property: background-color, width, transform;
+
+    transition: background-color 6s ease, width 3s linear;
+}
+nav{
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+nav:hover{
+    background-color: aqua;
+}

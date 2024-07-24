@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img{
+    margin-top: 5%;
+    width: 200px;
+    height: 300px;
+}
+img:hover{
+    transform: scale(1.2);
+}
+@keyframes animation {
+    0%{
+        background-color:blueviolet;
+        transform: translateX(100px);
+    }
+    20%{
+        background-color: yellow;
+        transform: translateY(100px);
+        rotate: 20turn;
+        
+    }
+    35%{
+        background-image: url(https://cdn-icons-png.flaticon.com/512/189/189768.png);
+        background-size:contain;
+        transform: translate(100px,100px);
+    }
+    50%{
+        background-image: url(https://www.yugioh-card.com/eu/wp-content/uploads/2022/04/Yugi.webp);
+        background-size:contain;
+        rotate: 0turn;
+        transform: skew(600px);
+    }
+    60%{
+        background-image: url(https://cdn-icons-png.flaticon.com/512/189/189768.png);
+        background-size:contain;
+        rotate: 10turn;
+        transform: translate(-100px,-100px);
+    }
+    80%{
+        background-image: url(https://cdn-icons-png.flaticon.com/512/189/189768.png);
+        background-size:contain;
+        transform: scale(1.5);
+    }
+    100%{
+        background-color: aquamarine;
+        rotate: 0;
+    }
+}
+div{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+div:hover{
+    animation: animation 10s ease-in-out alternate infinite;
+}

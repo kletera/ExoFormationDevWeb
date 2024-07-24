@@ -1,0 +1,9 @@
+h1{
+    text-shadow:  10px -9px 5px purple;
+}
+p:nth-child(2){
+    box-shadow: 0 0 9px 1px  red;
+}
+p:nth-child(3){
+    box-shadow: -20px 10px  greenyellow;
+}

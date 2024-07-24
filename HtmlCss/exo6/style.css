@@ -1,0 +1,30 @@
+h1{
+    color:red;
+    text-align:center;
+    font-size: 3em;
+}
+h3{
+    color:blue;
+    font-size: 2em;
+}
+p{
+    background: gray;
+}
+p strong{
+    font-weight: normal;
+    color:yellowgreen;
+}
+em{
+    font-style: normal;
+    text-decoration: underline;
+    font-size: 1.5em;
+    color: orange;
+}
+article:nth-child(4) p{
+    background:pink;
+}
+article:nth-child(3) h3{
+    text-align: end;
+    text-decoration: underline;
+    color: green;
+}
