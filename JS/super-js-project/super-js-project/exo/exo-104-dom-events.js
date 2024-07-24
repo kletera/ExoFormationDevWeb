@@ -263,12 +263,34 @@ localStorage.setItem('monSuperTexte',zoneTxt.value);
    zoneRender.innerHTML =marked(zoneTxt.value);
 });
 
+const titre2=document.querySelector('h2');
 
+function apparition(){
+    document.body.style.background="linear-gradient(22deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)";
+    titre2.innerText=`Welcom 2 the DOM`;
+    titre2.style.color='white';
+}
 
+const myTimeout = setTimeout(apparition, 3000);
 
+const titre=document.querySelector('h1');
+let time=3;
+let s=1000;
 
-
-
+titre.addEventListener('click',()=>{
+    time=3;
+    const compteur=setInterval(function(){
+        s=1000;
+        if(time>0){
+            titre.innerText=time;
+        }
+        else{
+            titre.innerText='GOGOGO';
+            clearInterval(compteur);
+        }
+        time--;
+    },s);
+});
 
 
 
