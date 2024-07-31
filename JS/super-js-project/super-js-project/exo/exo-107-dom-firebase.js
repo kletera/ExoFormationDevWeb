@@ -104,12 +104,18 @@ function readUserData() {
             //* Sur les icone en face du nom du user on rajoute un attribut qui contient la key
             editIconUI.setAttribute("userid", key);
             editIconUI.addEventListener("click", editButtonClicked);
+            let deleteIconUI=document.createElement('button');
+            deleteIconUI.innerText = 'Delete'
+            deleteIconUI.setAttribute('class','btn btn-outline-danger mx-3');
+            deleteIconUI.setAttribute("userid", key);
+            deleteIconUI.addEventListener("click", deleteButtonClicked);
             // On place les clé dans le DOM (si on les recup plus tard)
             $li.setAttribute("user-key", key);
             // Dans value on aura .name, .mail, .age 
             // dans la liste on affichera juste le .name
             $li.innerText = value.name;
             $li.append(editIconUI);
+            $li.append(deleteIconUI);
 
             // On place dans la userList
             $li.addEventListener("click", userClicked);
@@ -168,33 +174,69 @@ function userClicked(event) {
   //TODO:  En dehors de la fonction on(), Dans une variable saveBtn, on récupère notre bouton avec l id édit-user-btn 
   //TODO:  En dehors de la fonction on(), Sur ce bouton on place un eventListener au click qui lance saveUserBtnClicked
 
-function editButtonClicked(event) {
-    console.log(formUserEditUI);
-    formUserEditUI.style.display='block';
-    formUserUI.style.display='none';
-    const inputId=document.querySelector('.edit-userid');
-    console.log(event);
-    inputId=event.target.getAttribute("userid");
-    const userRef=dbRef.child('users/' + inputId.value);
-    const editUserInputsUI=document.querySelector('.edit-user-input');
-    userRef.on("value", (snap) =>{
-        for(let i=0; i<editUserInputsUI.length;i++){
-            let key=editUserInputsUI[i].getAttribute("data-key");
-            let valeur=snap.val()[key];
-            console.log(valeur);
+  function editButtonClicked(event) {
+    // Masquer form pour Ajouter
+    formUserUI.style.display = 'none';
+    // Afficher form pour Updater
+    formUserEditUI.style.display = 'block';
+    // On récupère l'ID du user qu'on a clické 
+    let inputId =document.querySelector(".edit-userid");
+    // On pré rempli le 1er Input avec l'ID (il sera masqué au final)
+    inputId.value = event.target.getAttribute('userid');
+    // On vise le bon user par son ID dans la BDD
+    const userRef = dbRef.child('users/' + inputId.value);
+    // On récup tous les inputs 
+    const editUserInputsUI = document.querySelectorAll(".edit-user-input");
+    // Lecture de l'utilisateur dans la BDD
+    userRef.on('value',snap=>{
+    // Boucle pour pré remplir les inputs du formulaire 
+        for(let i = 0, len = editUserInputsUI.length; i < len; i++) {
+            let key = editUserInputsUI[i].getAttribute("data-key");
+            editUserInputsUI[i].value = snap.val()[key];
         }
-    });
-    const saveBtn=document.querySelector('#édit-user-btn');
-    saveBtn.addEventListener('click',saveUserBtnClicked);
+    })
+     //* On place un addEventListener ca sera pour le bouton 'save' du formulaire 
+      //* Cela appellera la fonction saveUserBtnClicked qui elle se chargera d'enregistrer en BDD
+      //* l'utilisateur que l'on vient d'éditer 
+      const saveBtn = document.querySelector("#edit-user-btn");
+      saveBtn.addEventListener("click", saveUserBtnClicked);  
 };
 
+//*SAVE
+  //TODO : Dans la ƒ° saveUserBtnClicked : 
+  //TODO : Dans une variable userID on récupère la VALUE de l'input avec l'id "edit-userid"
+  //TODO : Dans une variable userRef on fait une référence à l'utilisateur dans la BDD 
+  //TODO : Une variable editedUserObject qui est un objet vide
+  //TODO : Dans une variable editUserInputsUI on récupère TOUS les elements html qui ont la classe "edit-user-input" (querySelectorAll)
+  //TODO : Ensuite on va faire une boucle forEach pour parcourir les editUserInputsUI
+  //TODO : Dans les param de forEach(), on lui passe une fonction qui a une variable textField en paramètre
+  //TODO : Dans cette fonction, dans le forEach on aura une variable key qui va stocker les attributs data-key de textField (getAttribute())
+  //TODO : Pour chaque clé (âge, name, email) on l’associe à notre nouvel utilisateur :  editedUserObject[key] = textField.value 
+  //TODO : Ensuite en dehors de la boucle, sur notre variable userRef on utilise la ƒ° update en lui passant editedUserObject en paramètre
+  //TODO : Enfin on peut remettre le display  à "none" de formUserEditUI et à "block" pour formUserUI
+
 function saveUserBtnClicked() {
-   
+    let userID=document.querySelector('.edit-userid').value;
+    let userRef=dbRef.child('users/' + userID);
+    const editedUserObject={};
+    const editUserInputsUI=document.querySelectorAll('.edit-user-input');
+    editUserInputsUI.forEach((textField)=>{
+        let key=textField.getAttribute('data-key');
+        editedUserObject[key] = textField.value;
+    });
+    userRef.update(editedUserObject);
+    formUserEditUI.style.display='none';
+    formUserUI.style.display='block';
 };
-   
+
 function deleteButtonClicked(event) {
-   
-}
+    // on capte l'event pour stocker l'id quand on click (cf les fonction d'avant avec event.target)
+    let userID =event.target.getAttribute('userid');
+    // On se fait une oneUserRef pour viser le bon ga par son ID dans la BDD
+    const oneUserRef = dbRef.child('users/' + userID);
+    // Sur cette oneUserRef on utilise la ƒ° .remove()
+    oneUserRef.remove();
+};
 
 
   

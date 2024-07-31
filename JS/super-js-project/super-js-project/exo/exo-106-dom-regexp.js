@@ -19,21 +19,35 @@ log.addEventListener('keyup',()=>{
     }
     console.log(regex.test(log.value));
 });
-pass.addEventListener('keyup',()=>{
-    if(pass.value.match(charDecimal)!=null && pass.value.match(charSpecial)!=null && pass.value.length>6 && pass.value.length<8){
-        liste.style.border='2px solid green';
-        p.innerText=`Le password est valide`;
-        liste.append(p);
+
+passwordInput.addEventListener('keyup',()=>{
+    const charDecimal = /\d/;
+    const charSpecial = /[$&@!]/;
+    let errorMessage ='';
+    // Si MDP <6 alors dans errormessage on cumule une <li></li> (trop court)
+    // Sinon Si MDP >8 alors dans errormessage on cumule une <li></li> (trop long)
+    // Si la value du passWord ne match pas la regex decimale alors on cumule une <li></li> (faut un chiffre)
+    // etc ... meme système pour les autres cas 
+    // On peut aussi faire un truc genre si erroMessage est vide alors c'est tout bon 
+    if(passwordInput.value.length<6){
+      errorMessage+='<li>Le Mot de passe trop COURT</li>'
+    }
+    else if(passwordInput.value.length>8){
+      errorMessage+='<li>Le Mot de passe trop LONG</li>'
+    }
+  
+    if(!passwordInput.value.match(charDecimal)){
+      errorMessage+='<li>Le Mot de passe doit contenir 1 chiffre</li>'
+    }
+    if(!passwordInput.value.match(charSpecial)){
+      errorMessage+='<li>Le Mot de passe doit contenir 1 caractère spécial (@,&,!,$,)</li>'
+    }
+    if(errorMessage!==''){
+      userMessage.innerHTML = `le mot de passe est : <ul>${errorMessage}</ul>`;
+      userMessage.style.border ='5px solid red'
     }
     else{
-        liste.style.border='2px solid red';
-        p.innerText=`Le password est:`;
-        l1.innerText=`trop court`;
-        l2.innerText=`doit contenir un chifre`;
-        l3.innerText=`doit contenir un caractère spécial $,&,@ ou !`;
-        liste.append(p,l1,l2,l3);
-        
+      userMessage.innerHTML = 'Le mot de passe est valide ! 👍';
+      userMessage.style.border ='5px solid green'
     }
-    console.log(pass.value.match(charDecimal));
-    console.log(pass.value.length);
-});
+  });
