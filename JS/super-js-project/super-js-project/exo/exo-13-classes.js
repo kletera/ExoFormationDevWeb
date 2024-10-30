@@ -38,28 +38,33 @@ class Employee{
         return this.salaireM*12;
     }
     calculCout(){
-        console.log(this.getCout()*(90/100));
-        return this.getCout()*(90/100);
+        return this.getCout()*12*(1+0.9);
     }
 }
-
 class Pme{
     constructor(nom,equipe,vente,ff,fa){
         this.nom=nom;
-        this.equipe= Employee;
+        this.equipe=equipe;
         this.vente=vente;
         this.ff=ff;
         this.fa=fa;
     }
     bilanCalculed(){
-        console.log(this.equipe);
-        let bilan=this.vente-this.ff-this.fa-this.equipe.calculCout();
-        console.log(`${this.nom} - : Cout Initial : ${this.equipe}`);
-        console.log(`${this.nom} - : Cout Total Equipe : ${this.equipe}`);
+        console.log(this.equipe[0]);
+        let calculTotal=0;
+        for(let i=0;i<this.equipe.length;i++){
+            calculTotal+= this.equipe[i].calculCout();
+        }
+        console.log(calculTotal);
+
+        let bilan=this.vente-this.ff-this.fa-calculTotal;
+        console.log(`${this.nom} - : Cout Initial : ${this.ff+this.fa}`);
+        console.log(`${this.nom} - : Cout Total Equipe : ${calculTotal}`);
         console.log(`${this.nom} - : VENTES : ${this.vente}`);
         console.log(`${this.nom} - : BILAN : ${bilan}`);
     }
 }
+
 //Scénario
 const pme = new Pme (
     //Le nom entreprise
