@@ -1,0 +1,13 @@
+.card{
+    background-color: blanchedalmond;
+    padding:2em;
+    width: 450px;
+    margin-bottom: 10px;
+    border: solid 1px black;
+}
+.card img{
+    height: 200px;
+}
+.border{
+    border: solid 3px red;
+}
