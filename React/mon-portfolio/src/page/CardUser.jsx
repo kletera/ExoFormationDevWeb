@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import Card from './Card'
+import '../App.css'
+import Card from '../components/Card'
 
 const USER1 ={
   image:"https://picsum.photos/200",
@@ -27,7 +27,7 @@ const USER3 ={
 const USER=[USER1,USER2,USER3]
 
 
-function App() {
+function CardUser() {
   let count=0
   const [search,setSearch]= useState('')
 
@@ -41,9 +41,10 @@ function App() {
 
   if(USER.length>0){
     return <>
+    <h1>CardUser</h1>
     <h1>Liste des Utilisateurs</h1>
     {USER.length>0 && <p>il y a {USER.length} utilisateurs inscrits !</p>}
-    <input type="text" onChange={event=>setSearch(event.target.value)} />
+    <input type="text" onChange={event=>setSearch(event.target.value)} style={{marginBottom:"10px"}}/>
 
     {USERS_LIST.map(user=> <Card key={count++} user={user}/>)}
     </>
@@ -51,4 +52,4 @@ function App() {
     return <h1>Aucun utilisateur d’inscrit</h1>    
   }
 }
-export default App
+export default CardUser
