@@ -1,26 +1,24 @@
 // Swich toggle
-const connexion=document.querySelector('#connexionForm');
-const inscription=document.querySelector('#inscriptionForm');
+const formConnexion=document.querySelector('#connexionForm');
+const formInscription=document.querySelector('#inscriptionForm');
 const swich=document.querySelector('#flexSwitchCheckDefault');
-console.log(connexion,inscription,swich);
-inscription.classList.add('disNone');
+console.log(formConnexion,formInscription,swich);
+formInscription.classList.add('disNone');
 
 swich.addEventListener('click',()=>{
     console.log(swich.checked);
-    connexion.classList.toggle('disNone');
-    inscription.classList.toggle('disNone');
+    formConnexion.classList.toggle('disNone');
+    formInscription.classList.toggle('disNone');
 });
 
 // Form
-const formCOnnexionUI=document.querySelector('#connexionForm');
-const formInscriptionUI=document.querySelector('#inscriptionForm');
 const detail=document.querySelector('#securityInfo');
 const connexionEmail=document.querySelector('#connexionInputEmail');
 const connexionPassword=document.querySelector('#connexionInputPassword');
 const inscriptionEmail=document.querySelector('#inscriptionInputEmail');
 const inscriptionPassword=document.querySelector('#inscriptionInputPassword');
 const inscriptionConfirm=document.querySelector('#inscriptionInputConfirmPassword');
-console.log(formCOnnexionUI,formInscriptionUI, detail,connexionEmail,connexionPassword,
+console.log(detail,connexionEmail,connexionPassword,
     inscriptionEmail,inscriptionPassword,inscriptionConfirm); 
 
 detail.style.display='block';
@@ -33,8 +31,8 @@ const regexObj = {
 };
 
 // Submit
-formCOnnexionUI.addEventListener('submit',(e)=>{e.preventDefault();})
-formInscriptionUI.addEventListener('submit',(e)=>{e.preventDefault();})
+formConnexion.addEventListener('submit',(e)=>{e.preventDefault();})
+formInscription.addEventListener('submit',(e)=>{e.preventDefault();})
 
 // Email
 function mail(erreur){
