@@ -12,6 +12,8 @@ swich.addEventListener('click',()=>{
 });
 
 // Form
+const formCOnnexionUI=document.querySelector('#connexionForm');
+const formInscriptionUI=document.querySelector('#inscriptionForm');
 const detail=document.querySelector('#securityInfo');
 const connexionEmail=document.querySelector('#connexionInputEmail');
 const connexionPassword=document.querySelector('#connexionInputPassword');
@@ -29,20 +31,25 @@ const regexObj = {
     xssPattern:/<script.*?>.*?<\/script>|<.*?onclick=.*?>|<.*?on\w+=".*?"/i
 };
 
+// Submit
+formCOnnexionUI.addEventListener('submit',(e)=>{e.preventDefault();})
+formInscriptionUI.addEventListener('submit',(e)=>{e.preventDefault();})
+
 // Email
 function mail(erreur){
     let errorMsg = '';
 
     if(!erreur.value.match(regexObj.regexMail)){
-        erreur.style.backgroundColor='red';
-        errorMsg+=`<li>Le format du mail n'est pas correct</li>`;
-    }else{
-        erreur.style.backgroundColor='green';
-        errorMsg='';
+        errorMsg+=`<li>⛔️ Le format du mail n'est pas correct</li>`;
     }
     if(erreur.value.match(regexObj.xssPattern)){
-        erreur.style.backgroundColor='red';
-        errorMsg+=`<li>Attention : potentiel XSS détecté</li>`;
+        errorMsg+=`<li>⛔️ Attention : potentiel XSS détecté</li>`;
+    }
+    // Updating color based on errors
+    if (errorMsg) {
+        erreur.style.backgroundColor = 'red';
+    } else {
+        erreur.style.backgroundColor = 'green';
     }
     detail.innerHTML=`<ul>${errorMsg}</ul>`;
 }
@@ -60,21 +67,46 @@ function password(erreur){
     let errorMsg = '';
 
     if(erreur.value.length<6){
-        errorMsg+=`<li>Mot de passe trop Faible</li>`;
+        errorMsg+=`<li>⛔️ Mot de passe trop Faible</li>`;
     }else if(erreur.value.length>12){
-        errorMsg+=`<li>Mot de passe trop Long</li>`;
+        errorMsg+=`<li>⛔️ Mot de passe trop Long</li>`;
     }
     if(!erreur.value.match(regexObj.charDecimal)){
-        errorMsg+=`<li>Le Mot de passe doit contenir 1 chiffre</li>`;
+        errorMsg+=`<li>⛔️ Le Mot de passe doit contenir 1 chiffre</li>`;
     }
     if(!erreur.value.match(regexObj.charSpecial)){
-        errorMsg+='<li>Le Mot de passe doit contenir un caractère spécial</li>';
+        errorMsg+='<li>⛔️ Le Mot de passe doit contenir un caractère spécial</li>';
     }
     if(erreur.value.match(regexObj.xssPattern)){
-        errorMsg+=`<li>Attention : potentiel XSS détecté</li>`;
+        errorMsg+=`<li>⛔️ Attention : potentiel XSS détecté</li>`;
+    }
+     // Updating color based on errors
+     if (errorMsg) {
+        erreur.style.backgroundColor = 'red';
+    } else {
+        erreur.style.backgroundColor = 'green';
     }
     detail.innerHTML=`<ul>${errorMsg}</ul>`;
 }
+
+// Password verification
+function passwordConfirm(erreur){
+    let errorMsg = '';
+   
+    if(inscriptionConfirm.value !== inscriptionPassword.value){
+        errorMsg+='<li>⛔️ Les Mot de passe ne correspondent pas</li>';
+    }
+    if(inscriptionConfirm.value.match(regexObj.xssPattern)){
+        errorMsg+=`<li>⛔️ Attention : potentiel XSS détecté</li>`;
+    }
+     // Updating color based on errors
+     if (errorMsg) {
+        erreur.style.backgroundColor = 'red';
+    } else {
+        erreur.style.backgroundColor = 'green';
+    }
+    detail.innerHTML=`<ul>${errorMsg}</ul>`;
+};
 
 connexionPassword.addEventListener('keyup',()=>{
     password(connexionPassword);
@@ -84,23 +116,6 @@ inscriptionPassword.addEventListener('keyup',()=>{
     password(inscriptionPassword);
 });
 
-// Password verification
 inscriptionConfirm.addEventListener('keyup',()=>{
-    let errorMsg = '';
-   
-    if(!inscriptionConfirm.value.match(inscriptionPassword.value)){
-        errorMsg+='<li>Les Mot de passe ne correspondent pas</li>';
-    }
-    if(inscriptionConfirm.value.match(regexObj.xssPattern)){
-        errorMsg+=`<li>Attention : potentiel XSS détecté</li>`;
-    }
-    detail.innerHTML=errorMsg;
+    passwordConfirm(inscriptionConfirm);
 });
-
-// Submit
-formCOnnexionUI.addEventListener('submit',(e)=>{
-    e.preventDefault();
-})
-formInscriptionUI.addEventListener('submit',(e)=>{
-    e.preventDefault();
-})
