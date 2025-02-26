@@ -1,4 +1,3 @@
-// Ajout dans le sytle du html disNone
 // Swich toggle
 const connexion=document.querySelector('#connexionForm');
 const inscription=document.querySelector('#inscriptionForm');
@@ -8,16 +7,11 @@ inscription.classList.toggle('disNone');
 
 swich.addEventListener('click',()=>{
     console.log(swich.checked);
-    if(swich.checked!='true'){
-        connexion.classList.toggle('disNone');
-        inscription.classList.toggle('disNone');
-    }else{
-        connexion.classList.toggle('disNone');
-        inscription.classList.toggle('disNone');
-    }
+    connexion.classList.toggle('disNone');
+    inscription.classList.toggle('disNone');
 });
 
-// Formulaire
+// Form
 const detail=document.querySelector('#securityInfo');
 const connexionEmail=document.querySelector('#connexionInputEmail');
 const connexionPassword=document.querySelector('#connexionInputPassword');
@@ -28,15 +22,17 @@ console.log(detail,connexionEmail,connexionPassword,inscriptionEmail,inscription
 
 detail.style.display='block';
 
+const regexObj = {
+    regexMail : /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/,
+    charDecimal : /\d/,
+    charSpecial : /[$&@!]/,
+    xssPattern:/<script.*?>.*?<\/script>|<.*?onclick=.*?>|<.*?on\w+=".*?"/i
+};
+
 // Email
 function mail(erreur){
     let errorMsg = '';
-    const regexObj = {
-        regexMail : /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/,
-        charDecimal : /\d/,
-        charSpecial : /[$&@!]/,
-        xssPattern:/<script.*?>.*?<\/script>|<.*?onclick=.*?>|<.*?on\w+=".*?"/i
-    };
+
     if(!erreur.value.match(regexObj.regexMail)){
         erreur.style.backgroundColor='red';
         errorMsg+=`<li>Le format du mail n'est pas correct</li>`;
@@ -62,12 +58,7 @@ inscriptionEmail.addEventListener('keyup',()=>{
 // Password
 function password(erreur){
     let errorMsg = '';
-    const regexObj = {
-        regexMail : /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/,
-        charDecimal : /\d/,
-        charSpecial : /[$&@!]/,
-        xssPattern:/<script.*?>.*?<\/script>|<.*?onclick=.*?>|<.*?on\w+=".*?"/i
-    };
+
     if(erreur.value.length<6){
         errorMsg+=`<li>Mot de passe trop Faible</li>`;
     }else if(erreur.value.length>12){
@@ -96,12 +87,7 @@ inscriptionPassword.addEventListener('keyup',()=>{
 // Password verification
 inscriptionConfirm.addEventListener('keyup',()=>{
     let errorMsg = '';
-    const regexObj = {
-        regexMail : /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/,
-        charDecimal : /\d/,
-        charSpecial : /[$&@!]/,
-        xssPattern:/<script.*?>.*?<\/script>|<.*?onclick=.*?>|<.*?on\w+=".*?"/i
-    };
+   
     if(!inscriptionConfirm.value.match(inscriptionPassword.value)){
         errorMsg+='<li>Les Mot de passe ne correspondent pas</li>';
     }
