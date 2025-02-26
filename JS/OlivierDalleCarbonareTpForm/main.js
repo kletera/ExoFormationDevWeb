@@ -21,8 +21,6 @@ const inscriptionConfirm=document.querySelector('#inscriptionInputConfirmPasswor
 console.log(detail,connexionEmail,connexionPassword,
     inscriptionEmail,inscriptionPassword,inscriptionConfirm); 
 
-detail.style.display='block';
-
 const regexObj = {
     regexMail : /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/,
     charDecimal : /\d/,
@@ -52,14 +50,6 @@ function mail(erreur){
     }
     detail.innerHTML=`<ul>${errorMsg}</ul>`;
 }
-
-connexionEmail.addEventListener('keyup',()=>{
-    mail(connexionEmail);
-});
-
-inscriptionEmail.addEventListener('keyup',()=>{
-    mail(inscriptionEmail);
-});
 
 // Password
 function password(erreur){
@@ -107,6 +97,14 @@ function passwordConfirm(erreur){
     detail.innerHTML=`<ul>${errorMsg}</ul>`;
 };
 
+
+connexionEmail.addEventListener('keyup',()=>{
+    mail(connexionEmail);
+});
+
+inscriptionEmail.addEventListener('keyup',()=>{
+    mail(inscriptionEmail);
+});
 connexionPassword.addEventListener('keyup',()=>{
     password(connexionPassword);
 });
