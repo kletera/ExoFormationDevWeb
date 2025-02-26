@@ -3,7 +3,7 @@ const connexion=document.querySelector('#connexionForm');
 const inscription=document.querySelector('#inscriptionForm');
 const swich=document.querySelector('#flexSwitchCheckDefault');
 console.log(connexion,inscription,swich);
-inscription.classList.toggle('disNone');
+inscription.classList.add('disNone');
 
 swich.addEventListener('click',()=>{
     console.log(swich.checked);
