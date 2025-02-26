@@ -20,7 +20,8 @@ const connexionPassword=document.querySelector('#connexionInputPassword');
 const inscriptionEmail=document.querySelector('#inscriptionInputEmail');
 const inscriptionPassword=document.querySelector('#inscriptionInputPassword');
 const inscriptionConfirm=document.querySelector('#inscriptionInputConfirmPassword');
-console.log(detail,connexionEmail,connexionPassword,inscriptionEmail,inscriptionPassword,inscriptionConfirm); 
+console.log(formCOnnexionUI,formInscriptionUI, detail,connexionEmail,connexionPassword,
+    inscriptionEmail,inscriptionPassword,inscriptionConfirm); 
 
 detail.style.display='block';
 
